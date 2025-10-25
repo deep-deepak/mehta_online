@@ -23,7 +23,7 @@ const NewHome = () => {
       {/* Clickable Image */}
       <div style={{ position: "relative", width: "100%", textAlign: "center" }}>
         <img
-          src={clickedOnce ? "/image2.png" : "/game.jpg"} // toggle image
+          src={clickedOnce ? "/image2.png" : "/newImage.jpeg"} // toggle image
           alt="Game"
           onClick={handleImageClick}
           style={{
