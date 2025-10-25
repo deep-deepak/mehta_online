@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 const NewHome = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "+919076333307"; // Your number with country code
-    const message = "Hello! I'm interested in your service.";
+    const phoneNumber = "919076333307"; // ✅ only digits
+    // Your number with country code
+    const message = "Hello! can i get 10% welcome bonus and my ID, please?.";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
@@ -14,7 +15,7 @@ const NewHome = () => {
       {/* Clickable Image */}
       <div style={{ position: "relative", width: "100%", textAlign: "center" }}>
         <img
-          src="/mehtabanner.jpg"
+          src="/game.jpg"
           alt="Game"
           onClick={handleWhatsAppClick}
           style={{
@@ -42,7 +43,34 @@ const NewHome = () => {
         ></div>
       </div>
 
-
+      {/* Footer */}
+      <div
+        className="w-100 border-top border-light border-opacity-25"
+        style={{
+          background: "rgba(0, 0, 0, 0.9)",
+          backdropFilter: "blur(10px)",
+        }}
+      >
+        <div className="container py-4">
+          <div className="row">
+            <div className="col-12 text-center">
+              <div className="d-flex flex-wrap justify-content-center gap-4 mb-3">
+                <FooterLink to="/legal/privacy-policy" label="Privacy Policy" />
+                <FooterLink to="/legal/terms-conditions" label="Terms and Conditions" />
+                <FooterLink to="/legal/game-responsibility" label="Customer Responsibility" />
+              </div>
+              <p
+                className="small mb-0 lh-base mx-auto"
+                style={{ color: "#AAAAAA", maxWidth: "800px" }}
+              >
+                <span className="fw-semibold text-white">Disclaimer:</span> This Website is only for 18+ users. If you are from Telangana, Orissa, Assam, Sikkim, and Nagaland, please leave the website immediately. Be aware of fraudsters, we only deal via <span className="fw-semibold text-success">WhatsApp</span>.
+                <br /><br />
+                <span className="fw-semibold text-white">About:</span> We Only Promote Fantasy Sports. No Real Money Involvement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Global CSS */}
       <style>{`
