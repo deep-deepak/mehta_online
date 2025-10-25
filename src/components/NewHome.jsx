@@ -1,13 +1,21 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const NewHome = () => {
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "919076333307"; // ✅ only digits
-    // Your number with country code
-    const message = "Hello! can i get 10% welcome bonus and my ID, please?.";
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
+  const [clickedOnce, setClickedOnce] = useState(false);
+
+  const handleImageClick = () => {
+    if (!clickedOnce) {
+      // First click: show another image
+      setClickedOnce(true);
+    } else {
+      // Second click: open WhatsApp
+      const phoneNumber = "919076333307"; // only digits
+      const message = "Hello! can i get 10% welcome bonus and my ID, please?.";
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
   };
 
   return (
@@ -15,20 +23,23 @@ const NewHome = () => {
       {/* Clickable Image */}
       <div style={{ position: "relative", width: "100%", textAlign: "center" }}>
         <img
-          src="/game.jpg"
+          src={clickedOnce ? "/image2.png" : "/game.jpg"} // toggle image
           alt="Game"
-          onClick={handleWhatsAppClick}
+          onClick={handleImageClick}
           style={{
-            width: "100%",
+            width: clickedOnce ? "50%" : "100%",
+            maxWidth: "100%",
             height: "auto",
             display: "block",
             cursor: "pointer",
+            margin: "0 auto",
             zIndex: 2,
             position: "relative",
+            transition: "width 0.5s ease", // smooth resize
           }}
         />
 
-        {/* Gradient Overlay (optional, can remove if unwanted) */}
+        {/* Gradient Overlay */}
         <div
           style={{
             position: "absolute",
