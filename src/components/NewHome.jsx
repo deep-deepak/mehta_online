@@ -11,7 +11,7 @@ const NewHome = () => {
       setClickedOnce(true);
     } else {
       // Second click: open WhatsApp
-      const phoneNumber = "919076333307"; // only digits
+      const phoneNumber = "919076333306"; // only digits
       const message = "Hello! can i get 10% welcome bonus and my ID, please?.";
       const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank");
